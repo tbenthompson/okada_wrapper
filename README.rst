@@ -23,3 +23,31 @@ Then, DC3Dwrapper can be treated like any other MATLAB function::
     [success, u, grad_u] = DC3Dwrapper(0.6, [1.0, 1.0, -1.0],...
                                             [0.0, 0.0, -3.0],...
                                             1.0, [1.0, 0.0, 0.0, 0.0]);
+
+Python
+----
+
+For the Python function, download the code::
+
+    git clone https://github.com/tbenthompson/okada_wrapper.git
+
+Then, run the install script::
+
+    python setup.py install
+
+The syntax is almost identical to the MATLAB version::
+
+    success, u, grad_u = DC3Dwrapper(0.6, [1.0, 1.0, -1.0],
+                                          [0.0, 0.0, -3.0],
+                                          1.0, [1.0, 0.0, 0.0, 0.0]);
+
+Tests
+----
+
+To run the tests, from the root directory in MATLAB type::
+
+    test_okada.m
+
+or, from python::
+    
+    python test_okada.py
