@@ -1,5 +1,5 @@
 #include "fintrf.h"
-#include "DC3D.f"
+#include "okada_wrapper/DC3D.f"
 C======================================================================
 #if 0
 C     
