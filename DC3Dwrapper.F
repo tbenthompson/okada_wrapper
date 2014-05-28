@@ -49,6 +49,8 @@ C     Function declarations:
       mwPointer mxGetPr
       mwPointer mxCreateDoubleMatrix
       integer mxIsNumeric
+      integer mxGetM
+      integer mxGetN
 
 C     Argument pointers:
       mwPointer alpha_pointer
@@ -105,13 +107,29 @@ C     Check for proper number of arguments.
      +                           'Three outputs required')
       endif
 
-C     TODO: DO SOME CHECKS TO MAKE SURE THESE HAVE THE RIGHT TYPES AND
-C     VALUES
 C     Grab the elastic moduli ratio (lambda + mu) / (lambda + 2*mu)
+C     Check that the input is a scalar.
+      if(mxIsNumeric(prhs(1)) .eq. 0 .or. mxGetM(prhs(1)) .ne. 1 .or. 
+     +   mxGetN(prhs(1)) .ne. 1) then
+         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:alpha',
+     +                           'Alpha must be a real scalar.')
+      endif
       alpha_pointer = mxGetPr(prhs(1))
       call mxCopyPtrToReal8(alpha_pointer, alpha, 1)
 
 C     Grab the source and observation points and put them in Okada form
+      if(mxIsNumeric(prhs(2)) .eq. 0 .or. mxGetM(prhs(2)) * 
+     +   mxGetN(prhs(2)) .ne. 3) then
+         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:xo',
+     +                           'the observation point must be a real
+     +                            3-vector.')
+      endif
+      if(mxIsNumeric(prhs(3)) .eq. 0 .or. mxGetM(prhs(3)) * 
+     +   mxGetN(prhs(3)) .ne. 3) then
+         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:xs',
+     +                           'the source point must be a real
+     +                            3-vector.')
+      endif
       xo_pointer = mxGetPr(prhs(2))
       call mxCopyPtrToReal8(xo_pointer, xo, 3)
       xs_pointer = mxGetPr(prhs(3))
@@ -122,10 +140,20 @@ C     Grab the source and observation points and put them in Okada form
       depth = -xs(3)
 
 C     Grab the dip
+      if(mxIsNumeric(prhs(4)) .eq. 0 .or. mxGetM(prhs(4)) .ne. 1 .or. 
+     +   mxGetN(prhs(4)) .ne. 1) then
+         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:dip',
+     +                           'Dip must be a real scalar.')
+      endif
       dip_pointer = mxGetPr(prhs(4))
       call mxCopyPtrToReal8(dip_pointer, dip, 1)
 
 C     Grab the potencies
+      if(mxIsNumeric(prhs(5)) .eq. 0 .or. mxGetM(prhs(5)) * 
+     +   mxGetN(prhs(5)) .ne. 4) then
+         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:xs',
+     +                           'the potency must be a real 4-vector.')
+      endif
       pot_pointer = mxGetPr(prhs(5))
       call mxCopyPtrToReal8(pot_pointer, pot, 4)
       pot1 = pot(1)
@@ -146,6 +174,7 @@ C     Grab the potencies
      + ux, uy, uz, uxx, uyx, uzx, uxy, uyy, uzy, uxz, uyz, uzz, iret)
         
       retval = dble(iret)
+C     Tests to check that the input files are being properly handled
 C     u(1) = pot(1)
 C     u(2) = pot(2)
 C     u(3) = pot(3)
