@@ -36,10 +36,11 @@ Five arguments are required:
 * xs = 3-vector representing the source point
 * dip = the dip-angle of the slip plane in degrees
 * potency = 4-vector
-  * 1 = strike-slip = Moment of double-couple / mu
-  * 2 = dip-slip = Moment of double-couple / mu
-  * 3 = inflation = Intensity of isotropic part / lambda
-  * 4 = tensile = Intensity of linear dipole / mu
+
+  * index 1 = strike-slip = Moment of double-couple / mu
+  * index 2 = dip-slip = Moment of double-couple / mu
+  * index 3 = inflation = Intensity of isotropic part / lambda
+  * index 4 = tensile = Intensity of linear dipole / mu
 
 Three outputs are provided:
 
@@ -64,6 +65,8 @@ The syntax is almost identical to the MATLAB version::
     success, u, grad_u = dc3d0wrapper(0.6, [1.0, 1.0, -1.0],
                                       [0.0, 0.0, -3.0],
                                       1.0, [1.0, 0.0, 0.0, 0.0])
+
+The arguments and outputs are identical to the MATLAB version.
 
 Tests
 ----
