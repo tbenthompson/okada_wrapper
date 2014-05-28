@@ -36,10 +36,10 @@ Five arguments are required:
 * xs = 3-vector representing the source point
 * dip = the dip-angle of the slip plane in degrees
 * potency = 4-vector
-*** 1 = strike-slip = Moment of double-couple / mu
-*** 2 = dip-slip = Moment of double-couple / mu
-*** 3 = inflation = Intensity of isotropic part / lambda
-*** 4 = tensile = Intensity of linear dipole / mu
+  * 1 = strike-slip = Moment of double-couple / mu
+  * 2 = dip-slip = Moment of double-couple / mu
+  * 3 = inflation = Intensity of isotropic part / lambda
+  * 4 = tensile = Intensity of linear dipole / mu
 
 Three outputs are provided:
 
