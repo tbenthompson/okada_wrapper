@@ -8,8 +8,8 @@ The original subroutine was written by Y. Okada as part of the paper:
 Okada, Y., 1992, Internal deformation due to shear and tensile faults in a half-space, 
  Bull. Seism. Soc. Am., 82, 1018-1040. 
 
-At 
-
+In the future, I will add a wrapper for the DC3D rectangular dislocation 
+subroutine as well.
 
 MATLAB
 ----

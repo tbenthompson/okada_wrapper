@@ -1,5 +1,5 @@
 #include "fintrf.h"
-#include "DC3Dfortran.f90"
+#include "DC3D.f"
 C======================================================================
 #if 0
 C     
