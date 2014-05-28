@@ -18,6 +18,7 @@ for i = 1:100
         ux(i, j) = u(1);
     end
 end
+
 contourf(x, y, log(abs(ux)))
 xlabel('x')
 ylabel('y')
