@@ -14,7 +14,11 @@ subroutine as well.
 MATLAB
 ----
 
-To get set up with the MATLAB function, open matlab and run::
+Download the code::
+
+    git clone https://github.com/tbenthompson/okada_wrapper.git
+
+Open matlab and run::
 
     mex 'DC3Dwrapper.F'
 
@@ -24,10 +28,30 @@ Then, DC3Dwrapper can be treated like any other MATLAB function::
                                             [0.0, 0.0, -3.0],...
                                             1.0, [1.0, 0.0, 0.0, 0.0]);
 
+The inputs and outputs are slightly different from the okada implementation.
+Five arguments are required:
+
+* alpha = (lambda + mu) / (lambda + 2 * mu)
+* xo = 3-vector representing the observation point
+* xs = 3-vector representing the source point
+* dip = the dip-angle of the slip plane in degrees
+* potency = 4-vector
+*** 1 = strike-slip = Moment of double-couple / mu
+*** 2 = dip-slip = Moment of double-couple / mu
+*** 3 = inflation = Intensity of isotropic part / lambda
+*** 4 = tensile = Intensity of linear dipole / mu
+
+Three outputs are provided:
+
+* success - a return code from DC3D0=0 if normal, 1 if singular, 2 if a positive z value for the observation point was given
+* u - 3-vector representing the displacement at the observation point. for example, u(2) = u_y
+* grad_u = the 3x3 tensor representing the partial derivatives of the displacement, for example, grad_u(1, 2) = d^2u/dxdy
+
+
 Python
 ----
 
-For the Python function, download the code::
+Download the code::
 
     git clone https://github.com/tbenthompson/okada_wrapper.git
 
