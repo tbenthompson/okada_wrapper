@@ -45,7 +45,7 @@ Three outputs are provided:
 
 * success - a return code from DC3D0=0 if normal, 1 if singular, 2 if a positive z value for the observation point was given
 * u - 3-vector representing the displacement at the observation point. for example, u(2) = u_y
-* grad_u = the 3x3 tensor representing the partial derivatives of the displacement, for example, grad_u(1, 2) = d^2u/dxdy
+* grad_u = the 3x3 tensor representing the partial derivatives of the displacement, for example, grad_u(1, 2) = d(u_x)/dy
 
 
 Python
