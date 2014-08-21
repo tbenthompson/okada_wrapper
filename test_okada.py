@@ -66,7 +66,7 @@ def test_dc3d():
     ylabel('y')
     title('$u_{\\textrm{x}}$')
     colorbar(cntrf)
-    savefig("strike_slip.pdf")
+    savefig("strike_slip.png")
     show()
 
 def test_success():
