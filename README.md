@@ -4,8 +4,7 @@ These files are MATLAB and Python wrappers for the Okada DC3D0 point source
 fortran subroutines. The Matlab wrappers are written using the MEX functions.
 The original subroutine was written by Y. Okada as part of the paper:
 
-Okada, Y., 1992, Internal deformation due to shear and tensile faults in a half-space, 
- Bull. Seism. Soc. Am., 82, 1018-1040. 
+**Okada, Y., 1992, Internal deformation due to shear and tensile faults in a half-space, Bull. Seism. Soc. Am., 82, 1018-1040.**
 
 #### MATLAB
 
@@ -49,7 +48,7 @@ Three outputs are provided:
 
 * success - a return code from DC3D0=0 if normal, 1 if singular, 2 if a positive z value for the observation point was given
 * u - 3-vector representing the displacement at the observation point. for example, u(2) = u_y
-* grad_u = the 3x3 tensor representing the partial derivatives of the displacement, for example, grad_u(1, 2) = d^2u/dxdy
+* grad_u = the 3x3 tensor representing the partial derivatives of the displacement, for example, grad_u(1, 2) = d(u_x)/dy
 
 
 Python
@@ -65,6 +64,7 @@ Then, run the install script::
 
 The syntax is almost identical to the MATLAB version::
 
+    from okada_wrapper import dc3d0wrapper
     success, u, grad_u = dc3d0wrapper(0.6, [1.0, 1.0, -1.0],
                                       [0.0, 0.0, -3.0],
                                       1.0, [1.0, 0.0, 0.0, 0.0])
