@@ -82,3 +82,7 @@ To run the tests, from the root directory in MATLAB type::
 or, for python::
     
     python test_okada.py
+
+which produces this beautiful figure:
+![Okada plot](strike_slip.png "")
+
