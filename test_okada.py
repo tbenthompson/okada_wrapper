@@ -55,7 +55,7 @@ def test_dc3d():
             success, u, grad_u = dc3dwrapper(alpha,
                                                [x[i], y[j], -obs_depth],
                                                source_depth, dip,
-                                               [-0.7, 0.7], [-0.7, 0.7],
+                                               [-0.6, 0.6], [-0.6, 0.6],
                                                [1.0, 0.0, 0.0])
             assert(success == 0)
             ux[i, j] = u[0]
