@@ -40,8 +40,8 @@ def test_dc3d0():
     contour(x, y, log(abs(ux.T)), colors = 'k', linestyles = 'solid')
     xlabel('x')
     ylabel('y')
-    title('$\log(u_{\\textrm{x}})$')
-    colorbar(cntrf)
+    cbar = colorbar(cntrf)
+    cbar.set_label('$\log(u_{\\textrm{x}})$')
     show()
 
 def test_dc3d():
@@ -64,8 +64,8 @@ def test_dc3d():
     contour(x, y, ux.T, colors = 'k', linestyles = 'solid')
     xlabel('x')
     ylabel('y')
-    title('$u_{\\textrm{x}}$')
-    colorbar(cntrf)
+    cbar = colorbar(cntrf)
+    cbar.set_label('$u_{\\textrm{x}}$')
     savefig("strike_slip.png")
     show()
 
