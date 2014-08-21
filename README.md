@@ -25,11 +25,12 @@ Open matlab and run::
 mex 'DC3D0wrapper.F'
 ```
 
+#####DC3D0wrapper
 Then, DC3D0wrapper can be treated like any other MATLAB function::
 
 ```
 [success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],-3.0,...
-                                    1.0, [1.0, 0.0, 0.0, 0.0]);
+                                    90, [1.0, 0.0, 0.0, 0.0]);
 ```
 
 
@@ -52,23 +53,54 @@ Three outputs are provided:
 * u - 3-vector representing the displacement at the observation point. for example, u(2) = u_y
 * grad_u = the 3x3 tensor representing the partial derivatives of the displacement, for example, grad_u(1, 2) = d(u_x)/dy
 
+#####DC3Dwrapper
+DC3Dwrapper can also be used for rectangular dislocation sources
+```
+[success, u, grad_u] = DC3Dwrapper(0.6, [1.0, 1.0, -1.0], 3.0,...
+                                    90, [-0.7, 0.7], [-0.7, 0.7],...
+                                    [1.0, 0.0, 0.0]);
+```
 
-Python
-----
+Seven arguments are required:
+
+* alpha = (lambda + mu) / (lambda + 2 * mu)
+* xo = 3-vector representing the observation point (x, y, z in the
+       original)
+* depth = the depth of the fault origin
+* dip = the dip-angle of the rectangular dislocation surface
+* strike_width = the along-strike range of the surface (al1,al2 in
+                 the original)
+* dip_width = the along-dip range of the surface (aw1, aw2 in the 
+              original)
+* dislocation = 3-vector representing the direction of motion on the
+                surface (DISL1, DISL2, DISL3)
+
+The outputs are identical to DC3D0wrapper
+
+#### Python
 
 Download the code::
 
-    git clone https://github.com/tbenthompson/okada_wrapper.git
+```
+git clone https://github.com/tbenthompson/okada_wrapper.git
+```
 
 Then, run the install script::
 
-    python setup.py install
+```
+python setup.py install
+```
 
 The syntax is almost identical to the MATLAB version::
 
-    from okada_wrapper import dc3d0wrapper
-    success, u, grad_u = dc3d0wrapper(0.6, [1.0, 1.0, -1.0], 3.0,
-                                      1.0, [1.0, 0.0, 0.0, 0.0])
+```
+from okada_wrapper import dc3d0wrapper
+success, u, grad_u = dc3d0wrapper(0.6, [1.0, 1.0, -1.0], 3.0,
+                                  1.0, [1.0, 0.0, 0.0, 0.0])
+success, u, grad_u = dc3dwrapper(0.6, [1.0, 1.0, -1.0],
+                                 3.0, 90, [-0.7, 0.7], [-0.7, 0.7],
+                                 [1.0, 0.0, 0.0])                                      
+```
 
 The arguments and outputs are identical to the MATLAB version.
 
