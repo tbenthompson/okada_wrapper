@@ -6,6 +6,10 @@ The original subroutine was written by Y. Okada as part of the paper:
 
 **Okada, Y., 1992, Internal deformation due to shear and tensile faults in a half-space, Bull. Seism. Soc. Am., 82, 1018-1040.**
 
+The inputs and outputs here are slightly different from the okada implementation,
+though not in any substantial way. Look at the [original documentation webpage
+here](http://www.bosai.go.jp/study/application/dc3d/DC3Dhtml_E.html) for more details
+
 #### MATLAB
 
 Download the code::
@@ -23,19 +27,16 @@ mex 'DC3D0wrapper.F'
 Then, DC3D0wrapper can be treated like any other MATLAB function::
 
 ```
-[success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],...
-                                    [0.0, 0.0, -3.0],...
+[success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],-3.0,
                                     1.0, [1.0, 0.0, 0.0, 0.0]);
 ```
 
-The inputs and outputs are slightly different from the okada implementation,
-though not in any substantial way. Look at the original documentation webpage
-here for more details
+
 Five arguments are required:
 
 * alpha = (lambda + mu) / (lambda + 2 * mu)
 * xo = 3-vector representing the observation point (x, y, z in the
-*      original)
+       original)
 * depth = the depth of the slip plane
 * dip = the dip-angle of the slip plane in degrees
 * potency = 4-vector (POT1,2,3,4 in original)
@@ -65,8 +66,7 @@ Then, run the install script::
 The syntax is almost identical to the MATLAB version::
 
     from okada_wrapper import dc3d0wrapper
-    success, u, grad_u = dc3d0wrapper(0.6, [1.0, 1.0, -1.0],
-                                      [0.0, 0.0, -3.0],
+    success, u, grad_u = dc3d0wrapper(0.6, [1.0, 1.0, -1.0], 3.0,
                                       1.0, [1.0, 0.0, 0.0, 0.0])
 
 The arguments and outputs are identical to the MATLAB version.
