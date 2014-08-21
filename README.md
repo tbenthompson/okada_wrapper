@@ -115,5 +115,5 @@ or, for python::
     
     python test_okada.py
 
-![Okada plot](strike_slip.png "")
+![Okada plot](image.png "")
 
