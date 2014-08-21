@@ -94,7 +94,7 @@ python setup.py install
 The syntax is almost identical to the MATLAB version::
 
 ```
-from okada_wrapper import dc3d0wrapper
+from okada_wrapper import dc3d0wrapper, dc3dwrapper
 success, u, grad_u = dc3d0wrapper(0.6, [1.0, 1.0, -1.0], 3.0,
                                   1.0, [1.0, 0.0, 0.0, 0.0])
 success, u, grad_u = dc3dwrapper(0.6, [1.0, 1.0, -1.0],
