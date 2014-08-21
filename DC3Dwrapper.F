@@ -15,7 +15,7 @@ C     space displacements and displacement gradients for a strike-slip,
 C     dip-slip, tensile, or inflationary displacement on a rectangular
 C     surface at depth.
 C     
-C     Five arguments are required:
+C     Seven arguments are required:
 C     alpha = (lambda + mu) / (lambda + 2 * mu)
 C     xo = 3-vector representing the observation point (x, y, z in the
 C          original)
