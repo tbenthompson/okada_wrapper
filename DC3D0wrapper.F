@@ -3,12 +3,12 @@
 C======================================================================
 #if 0
 C     
-C     DC3Dwrapper.F
-C     .F file needs to be preprocessed to generate .for equivalent
+C     DC3D0wrapper.F
+C     .F file needs to be preprocessed to generate .f equivalent
 C     
 #endif
 C     
-C     DC3Dwrapper.f
+C     DC3D0wrapper.f
 C
 C     Wraps the DC3D0 fortran function. This function computes the half
 C     space greens function for a strike-slip, dip-slip, tensile, or
@@ -100,10 +100,10 @@ C     Intermediate outputs
 C-----------------------------------------------------------------------
 C     Check for proper number of arguments. 
       if(nrhs .ne. 5) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:nInput',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:nInput',
      +                           'Five inputs required.')
       elseif(nlhs .gt. 3) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:nOutput',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:nOutput',
      +                           'Three outputs required')
       endif
 
@@ -111,7 +111,7 @@ C     Grab the elastic moduli ratio (lambda + mu) / (lambda + 2*mu)
 C     Check that the input is a scalar.
       if(mxIsNumeric(prhs(1)) .eq. 0 .or. mxGetM(prhs(1)) .ne. 1 .or. 
      +   mxGetN(prhs(1)) .ne. 1) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:alpha',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:alpha',
      +                           'Alpha must be a real scalar.')
       endif
       alpha_pointer = mxGetPr(prhs(1))
@@ -120,13 +120,13 @@ C     Check that the input is a scalar.
 C     Grab the source and observation points and put them in Okada form
       if(mxIsNumeric(prhs(2)) .eq. 0 .or. mxGetM(prhs(2)) * 
      +   mxGetN(prhs(2)) .ne. 3) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:xo',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:xo',
      +                           'the observation point must be a real
      +                            3-vector.')
       endif
       if(mxIsNumeric(prhs(3)) .eq. 0 .or. mxGetM(prhs(3)) * 
      +   mxGetN(prhs(3)) .ne. 3) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:xs',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:xs',
      +                           'the source point must be a real
      +                            3-vector.')
       endif
@@ -142,7 +142,7 @@ C     Grab the source and observation points and put them in Okada form
 C     Grab the dip
       if(mxIsNumeric(prhs(4)) .eq. 0 .or. mxGetM(prhs(4)) .ne. 1 .or. 
      +   mxGetN(prhs(4)) .ne. 1) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:dip',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:dip',
      +                           'Dip must be a real scalar.')
       endif
       dip_pointer = mxGetPr(prhs(4))
@@ -151,7 +151,7 @@ C     Grab the dip
 C     Grab the potencies
       if(mxIsNumeric(prhs(5)) .eq. 0 .or. mxGetM(prhs(5)) * 
      +   mxGetN(prhs(5)) .ne. 4) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3Dwrapper:xs',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:xs',
      +                           'the potency must be a real 4-vector.')
       endif
       pot_pointer = mxGetPr(prhs(5))

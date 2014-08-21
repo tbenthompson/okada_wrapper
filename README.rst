@@ -20,11 +20,11 @@ Download the code::
 
 Open matlab and run::
 
-    mex 'DC3Dwrapper.F'
+    mex 'DC3D0wrapper.F'
 
-Then, DC3Dwrapper can be treated like any other MATLAB function::
+Then, DC3D0wrapper can be treated like any other MATLAB function::
 
-    [success, u, grad_u] = DC3Dwrapper(0.6, [1.0, 1.0, -1.0],...
+    [success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],...
                                             [0.0, 0.0, -3.0],...
                                             1.0, [1.0, 0.0, 0.0, 0.0]);
 
