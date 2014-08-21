@@ -59,6 +59,8 @@ C     Argument pointers:
       mwPointer depth_pointer
       mwPointer dip_pointer
       mwPointer pot_pointer
+
+C     Output argument pointers
       mwPointer u_pointer
       mwPointer grad_u_pointer
       mwPointer retval_pointer
@@ -117,25 +119,27 @@ C     Check that the input is a scalar.
       alpha_pointer = mxGetPr(prhs(1))
       call mxCopyPtrToReal8(alpha_pointer, alpha, 1)
 
-C     Grab the source and observation points and put them in Okada form
+C     Grab the observation point
       if(mxIsNumeric(prhs(2)) .eq. 0 .or. mxGetM(prhs(2)) * 
      +   mxGetN(prhs(2)) .ne. 3) then
          call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:xo',
      +                           'the observation point must be a real
-     +                            3-vector.')
+     +3-vector.')
       endif
+      xo_pointer = mxGetPr(prhs(2))
+      call mxCopyPtrToReal8(xo_pointer, xo, 3)
+      x = xo(1)
+      y = xo(2)
+      z = xo(3)
+
+C     Grab the depth
       if(mxIsNumeric(prhs(3)) .eq. 0 .or. mxGetM(prhs(3)) .ne. 1 .or. 
      +   mxGetN(prhs(3)) .ne. 1) then
          call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:depth',
      +                           'Depth must be a real scalar.')
       endif
-      xo_pointer = mxGetPr(prhs(2))
-      call mxCopyPtrToReal8(xo_pointer, xo, 3)
       depth_pointer = mxGetPr(prhs(3))
       call mxCopyPtrToReal8(depth_pointer, depth, 1)
-      x = xo(1)
-      y = xo(2)
-      z = xo(3)
 
 C     Grab the dip
       if(mxIsNumeric(prhs(4)) .eq. 0 .or. mxGetM(prhs(4)) .ne. 1 .or. 
@@ -149,7 +153,7 @@ C     Grab the dip
 C     Grab the potencies
       if(mxIsNumeric(prhs(5)) .eq. 0 .or. mxGetM(prhs(5)) * 
      +   mxGetN(prhs(5)) .ne. 4) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:xs',
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:potency',
      +                           'the potency must be a real 4-vector.')
       endif
       pot_pointer = mxGetPr(prhs(5))
