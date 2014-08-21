@@ -185,19 +185,19 @@ python module DC3D ! in
             real*4 :: disl1
             real*4 :: disl2
             real*4 :: disl3
-            real*4 :: ux
-            real*4 :: uy
-            real*4 :: uz
-            real*4 :: uxx
-            real*4 :: uyx
-            real*4 :: uzx
-            real*4 :: uxy
-            real*4 :: uyy
-            real*4 :: uzy
-            real*4 :: uxz
-            real*4 :: uyz
-            real*4 :: uzz
-            integer :: iret
+            real*4 intent(out) :: ux
+            real*4 intent(out) :: uy
+            real*4 intent(out) :: uz
+            real*4 intent(out) :: uxx
+            real*4 intent(out) :: uyx
+            real*4 intent(out) :: uzx
+            real*4 intent(out) :: uxy
+            real*4 intent(out) :: uyy
+            real*4 intent(out) :: uzy
+            real*4 intent(out) :: uxz
+            real*4 intent(out) :: uyz
+            real*4 intent(out) :: uzz
+            integer intent(out) :: iret
             real*8 dimension(5) :: dummy
             real*8 :: sd
             real*8 :: cd

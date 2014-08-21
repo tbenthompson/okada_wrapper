@@ -2,7 +2,7 @@ from numpy.distutils.core import setup, Extension
 
 # -g compiles with debugging information.
 # -O0 means compile with no optimization, try -O3 for blazing speed
-compile_args = ['-O2']
+compile_args = ['-O3']
 ext = []
 ext.append(Extension('DC3D',
                   sources = ['okada_wrapper/DC3D.f',
