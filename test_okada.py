@@ -82,5 +82,5 @@ def test_success():
     assert(success == 2)
 
 if __name__ == '__main__':
-    test_dc3d0()
+    # test_dc3d0()
     test_dc3d()
