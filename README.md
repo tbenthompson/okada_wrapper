@@ -1,8 +1,9 @@
 #### Okada wrapper (MATLAB, Python)
 
-These files are MATLAB and Python wrappers for the Okada DC3D0 point source 
-fortran subroutines. The Matlab wrappers are written using the MEX functions.
-The original subroutine was written by Y. Okada as part of the paper:
+These files are MATLAB and Python wrappers for the Okada DC3D0 point source
+and the DC3D rectangular dislocation surface fortran subroutines. The Matlab 
+wrappers are written using the MEX functions. The original subroutine was 
+written by Y. Okada as part of the paper:
 
 **Okada, Y., 1992, Internal deformation due to shear and tensile faults in a half-space, Bull. Seism. Soc. Am., 82, 1018-1040.**
 
