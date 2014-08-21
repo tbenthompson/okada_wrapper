@@ -1,6 +1,7 @@
 from okada_wrapper import dc3d0wrapper
 from numpy import linspace, zeros, log
-from matplotlib.pyplot import contourf, xlabel, ylabel, colorbar, show
+from matplotlib.pyplot import contourf, contour,\
+    xlabel, ylabel, colorbar, show
 source_depth = 3.0
 obs_depth = 3.0
 poisson_ratio = 0.25
@@ -20,8 +21,9 @@ for i in range(100):
                                            dip, [1.0, 0.0, 0.0, 0.0]);
         ux[j, i] = u[0]
 
-contourf(x, y, log(abs(ux)))
+cntrf = contourf(x, y, log(abs(ux)))
+contour(x, y, log(abs(ux)), colors = 'k', linestyles = 'solid')
 xlabel('x')
 ylabel('y')
-colorbar()
+colorbar(cntrf)
 show()

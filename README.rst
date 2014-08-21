@@ -33,7 +33,10 @@ Five arguments are required:
 
 * alpha = (lambda + mu) / (lambda + 2 * mu)
 * xo = 3-vector representing the observation point
-* xs = 3-vector representing the source point
+* xs = 3-vector representing the source point. This is the primary difference. 
+  The inputs to the original function assumed the xs was located on a vertical
+  line through the origin and so only accepted a depth parameter. To emulate that
+  behavior simply set xs = [0.0, 0.0, -depth]
 * dip = the dip-angle of the slip plane in degrees
 * potency = 4-vector
 
