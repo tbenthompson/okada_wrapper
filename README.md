@@ -27,7 +27,7 @@ mex 'DC3D0wrapper.F'
 Then, DC3D0wrapper can be treated like any other MATLAB function::
 
 ```
-[success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],-3.0,
+[success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],-3.0,...
                                     1.0, [1.0, 0.0, 0.0, 0.0]);
 ```
 
