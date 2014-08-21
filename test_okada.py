@@ -60,11 +60,15 @@ def test_dc3d():
             assert(success == 0)
             ux[i, j] = u[0]
 
-    cntrf = contourf(x, y, ux.T)
-    contour(x, y, ux.T, colors = 'k', linestyles = 'solid')
+    levels = linspace(-0.5, 0.5, 21)
+    cntrf = contourf(x, y, ux.T, levels = levels)
+    contour(x, y, ux.T, colors = 'k', levels = levels, linestyles = 'solid')
     xlabel('x')
     ylabel('y')
     cbar = colorbar(cntrf)
+    tick_locator = matplotlib.ticker.MaxNLocator(nbins=5)
+    cbar.locator = tick_locator
+    cbar.update_ticks()
     cbar.set_label('$u_{\\textrm{x}}$')
     savefig("strike_slip.png")
     show()
