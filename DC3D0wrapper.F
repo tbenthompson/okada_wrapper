@@ -15,10 +15,11 @@ C     space greens function for a strike-slip, dip-slip, tensile, or
 C     inflationary displacement at depth. 
 C     Five arguments are required:
 C     alpha = (lambda + mu) / (lambda + 2 * mu)
-C     xo = 3-vector representing the observation point
-C     xs = 3-vector representing the source point
+C     xo = 3-vector representing the observation point (x, y, z in the
+C          original)
+C     depth = the depth of the slip plane
 C     dip = the dip-angle of the slip plane in degrees
-C     potency = 4-vector
+C     potency = 4-vector (POT1,2,3,4 in original)
 C           1 = strike-slip = Moment of double-couple / mu
 C           2 = dip-slip = Moment of double-couple / mu
 C           3 = inflation = Intensity of isotropic part / lambda
@@ -55,7 +56,7 @@ C     Function declarations:
 C     Argument pointers:
       mwPointer alpha_pointer
       mwPointer xo_pointer
-      mwPointer xs_pointer
+      mwPointer depth_pointer
       mwPointer dip_pointer
       mwPointer pot_pointer
       mwPointer u_pointer
@@ -64,7 +65,6 @@ C     Argument pointers:
 
 C     Intermediate values
       real*8 xo(3)
-      real*8 xs(3)
       real*8 pot(4)
 
 C     Arguments for DC3D0:
@@ -124,20 +124,18 @@ C     Grab the source and observation points and put them in Okada form
      +                           'the observation point must be a real
      +                            3-vector.')
       endif
-      if(mxIsNumeric(prhs(3)) .eq. 0 .or. mxGetM(prhs(3)) * 
-     +   mxGetN(prhs(3)) .ne. 3) then
-         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:xs',
-     +                           'the source point must be a real
-     +                            3-vector.')
+      if(mxIsNumeric(prhs(3)) .eq. 0 .or. mxGetM(prhs(3)) .ne. 1 .or. 
+     +   mxGetN(prhs(3)) .ne. 1) then
+         call mexErrMsgIdAndTxt ('MATLAB:DC3D0wrapper:depth',
+     +                           'Depth must be a real scalar.')
       endif
       xo_pointer = mxGetPr(prhs(2))
       call mxCopyPtrToReal8(xo_pointer, xo, 3)
-      xs_pointer = mxGetPr(prhs(3))
-      call mxCopyPtrToReal8(xs_pointer, xs, 3)
-      x = xo(1) - xs(1)
-      y = xo(2) - xs(2)
+      depth_pointer = mxGetPr(prhs(3))
+      call mxCopyPtrToReal8(depth_pointer, depth, 1)
+      x = xo(1)
+      y = xo(2)
       z = xo(3)
-      depth = -xs(3)
 
 C     Grab the dip
       if(mxIsNumeric(prhs(4)) .eq. 0 .or. mxGetM(prhs(4)) .ne. 1 .or. 

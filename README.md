@@ -1,5 +1,4 @@
-Okada wrapper (MATLAB, Python)
-======
+#### Okada wrapper (MATLAB, Python)
 
 These files are MATLAB and Python wrappers for the Okada DC3D0 point source 
 fortran subroutines. The Matlab wrappers are written using the MEX functions.
@@ -8,38 +7,39 @@ The original subroutine was written by Y. Okada as part of the paper:
 Okada, Y., 1992, Internal deformation due to shear and tensile faults in a half-space, 
  Bull. Seism. Soc. Am., 82, 1018-1040. 
 
-In the future, I will add a wrapper for the DC3D rectangular dislocation 
-subroutine as well.
-
-MATLAB
-----
+#### MATLAB
 
 Download the code::
 
-    git clone https://github.com/tbenthompson/okada_wrapper.git
+```
+git clone https://github.com/tbenthompson/okada_wrapper.git
+```
 
 Open matlab and run::
 
-    mex 'DC3D0wrapper.F'
+```
+mex 'DC3D0wrapper.F'
+```
 
 Then, DC3D0wrapper can be treated like any other MATLAB function::
 
-    [success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],...
-                                            [0.0, 0.0, -3.0],...
-                                            1.0, [1.0, 0.0, 0.0, 0.0]);
+```
+[success, u, grad_u] = DC3D0wrapper(0.6, [1.0, 1.0, -1.0],...
+                                    [0.0, 0.0, -3.0],...
+                                    1.0, [1.0, 0.0, 0.0, 0.0]);
+```
 
-The inputs and outputs are slightly different from the okada implementation.
+The inputs and outputs are slightly different from the okada implementation,
+though not in any substantial way. Look at the original documentation webpage
+here for more details
 Five arguments are required:
 
 * alpha = (lambda + mu) / (lambda + 2 * mu)
-* xo = 3-vector representing the observation point
-* xs = 3-vector representing the source point. This is the primary difference. 
-  The inputs to the original function assumed the xs was located on a vertical
-  line through the origin and so only accepted a depth parameter. To emulate that
-  behavior simply set xs = [0.0, 0.0, -depth]
+* xo = 3-vector representing the observation point (x, y, z in the
+*      original)
+* depth = the depth of the slip plane
 * dip = the dip-angle of the slip plane in degrees
-* potency = 4-vector
-
+* potency = 4-vector (POT1,2,3,4 in original)
   * index 1 = strike-slip = Moment of double-couple / mu
   * index 2 = dip-slip = Moment of double-couple / mu
   * index 3 = inflation = Intensity of isotropic part / lambda
@@ -78,6 +78,6 @@ To run the tests, from the root directory in MATLAB type::
 
     test_okada.m
 
-or, from python::
+or, for python::
     
     python test_okada.py
