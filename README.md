@@ -11,6 +11,8 @@ The inputs and outputs here are slightly different from the okada implementation
 though not in any substantial way. Look at the [original documentation webpage
 here](http://www.bosai.go.jp/study/application/dc3d/DC3Dhtml_E.html) for more details
 
+A different MATLAB mex wrapper for the Okada dislocation sources is available on [Paul Segall's website](https://pangea.stanford.edu/research/CDFM/software/index.html).
+
 #### MATLAB
 
 Download the code::
