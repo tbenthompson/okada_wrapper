@@ -3,6 +3,7 @@ from numpy import linspace, zeros, log
 from matplotlib.pyplot import contourf, contour,\
     xlabel, ylabel, title, colorbar, show, savefig
 import matplotlib
+import time
 matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['font.serif'] = ['Computer Modern Roman']
 matplotlib.rcParams['text.usetex'] = True
@@ -85,6 +86,19 @@ def test_success():
                                    [1.0, 0.0, 0.0])
     assert(success == 2)
 
+def benchmark():
+    n = 1000000
+    start = time.time()
+    for i in range(n):
+        success, u, grad_u = dc3dwrapper(1.0, [0.0, 0.0, 1.0],
+                                         0.0, 90, [-0.7, 0.7], [-0.7, 0.7],
+                                         [1.0, 0.0, 0.0])
+    end = time.time()
+    T = end - start
+    print(str(n) + " DC3D evaluations took: " + str(T) + " seconds")
+    print("Giving a time of " + str(T / n) + " seconds per evaluation.")
+
 if __name__ == '__main__':
     # test_dc3d0()
     test_dc3d()
+    # benchmark()
