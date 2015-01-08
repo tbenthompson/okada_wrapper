@@ -21,10 +21,13 @@ Download the code::
 git clone https://github.com/tbenthompson/okada_wrapper.git
 ```
 
+Make sure that MATLAB has a properly configured compiler. This [page on MATLAB's site has details](http://www.mathworks.com/help/matlab/ref/mex.html). It seem like GCC is automatically found if it is installed.
+
 Open matlab and run::
 
 ```
 mex 'DC3D0wrapper.F'
+mex 'DC3Dwrapper.F'
 ```
 
 #####DC3D0wrapper
@@ -86,6 +89,8 @@ Download the code::
 ```
 git clone https://github.com/tbenthompson/okada_wrapper.git
 ```
+
+Make sure that a Fortran compiler is installed. The wrappers are tested using gcc/gfortran, but should hopefully work with other fortran compilers.
 
 Then, run the install script::
 
