@@ -30,7 +30,8 @@ mex 'DC3D0wrapper.F'
 mex 'DC3Dwrapper.F'
 ```
 
-#####DC3D0wrapper
+##### DC3D0wrapper
+
 Then, DC3D0wrapper can be treated like any other MATLAB function::
 
 ```
@@ -58,7 +59,8 @@ Three outputs are provided:
 * u - 3-vector representing the displacement at the observation point. for example, u(2) = u_y
 * grad_u = the 3x3 tensor representing the partial derivatives of the displacement, for example, grad_u(1, 2) = d(u_x)/dy
 
-#####DC3Dwrapper
+##### DC3Dwrapper
+
 DC3Dwrapper can also be used for rectangular dislocation sources
 ```
 [success, u, grad_u] = DC3Dwrapper(0.6, [1.0, 1.0, -1.0], 3.0,...
