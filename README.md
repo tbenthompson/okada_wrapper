@@ -86,7 +86,13 @@ The outputs are identical to DC3D0wrapper
 
 #### Python
 
-Download the code::
+NEW: You can install `okada_wrapper` directly from the PyPI by running::
+
+```
+pip install okada_wrapper
+```
+
+For the old, manual installation method, download the code::
 
 ```
 git clone https://github.com/tbenthompson/okada_wrapper.git
