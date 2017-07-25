@@ -9,15 +9,26 @@ ext.append(Extension('DC3D',
                              'okada_wrapper/DC3D.pyf'],
                   extra_compile_args=compile_args))
 
+try:
+   import pypandoc
+   description = pypandoc.convert('README.md', 'rst')
+except (IOError, ImportError):
+   description = open('README.md').read()
+
 setup(
-   name = "okada_wrapper",
    packages = ['okada_wrapper'],
-   version = '0.1.0',
+   zip_safe = False,
+   ext_modules=ext,
+
+   name = "okada_wrapper",
+   version = '17.07.25',
    description = 'Python and MATLAB wrappers for the Okada Green\'s function codes',
+   long_description = description,
+
+   url = 'https://github.com/tbenthompson/okada_wrapper',
    author = 'Ben Thompson',
    author_email = 't.ben.thompson@gmail.com',
-   url = 'https://github.com/tbenthompson/okada_wrapper',
+   license = 'MIT',
    keywords = ['okada', 'elastic', 'halfspace'],
-   classifiers = [],
-   ext_modules=ext
+   classifiers = []
 )
