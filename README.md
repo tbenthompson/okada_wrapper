@@ -80,7 +80,7 @@ Seven arguments are required:
 * dip_width = the along-dip range of the surface (aw1, aw2 in the 
               original)
 * dislocation = 3-vector representing the direction of motion on the
-                surface (DISL1, DISL2, DISL3)
+                surface (DISL1 = strike-slip, DISL2 = dip-slip, DISL3 = opening/overlap)
 
 The outputs are identical to DC3D0wrapper
 
