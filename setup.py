@@ -21,7 +21,7 @@ setup(
    ext_modules=ext,
 
    name = "okada_wrapper",
-   version = '17.07.25',
+   version = '17.11.03',
    description = 'Python and MATLAB wrappers for the Okada Green\'s function codes',
    long_description = description,
 
