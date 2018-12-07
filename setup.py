@@ -17,6 +17,7 @@ except (IOError, ImportError):
 
 setup(
    packages = ['okada_wrapper'],
+    install_requires = ['numpy'],
    zip_safe = False,
    ext_modules=ext,
 
