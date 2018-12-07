@@ -1,6 +1,6 @@
 from numpy.distutils.core import setup, Extension
 
-version = open('VERSION').read()
+version = open('VERSION').read().strip('\n')
 
 # -g compiles with debugging information.
 # -O0 means compile with no optimization, try -O3 for blazing speed
@@ -26,7 +26,7 @@ setup(
    name = "okada_wrapper",
    version = version,
    description = 'Python and MATLAB wrappers for the Okada Green\'s function codes',
-   long_description = description,
+   # long_description = description,
 
    url = 'https://github.com/tbenthompson/okada_wrapper',
    author = 'Ben Thompson',
