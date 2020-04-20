@@ -13,6 +13,9 @@ here](http://www.bosai.go.jp/study/application/dc3d/DC3Dhtml_E.html) for more de
 
 A different MATLAB mex wrapper for the Okada dislocation sources is available on [Paul Segall's website](https://pangea.stanford.edu/research/CDFM/software/index.html).
 
+#### Common issues:
+If you're having problems installing on a recent version of OSX, see here for some help: https://github.com/tbenthompson/okada_wrapper/issues/3
+
 #### MATLAB
 
 Download the code::
