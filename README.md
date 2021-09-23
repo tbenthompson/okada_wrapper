@@ -1,3 +1,7 @@
+### Note: please consider using [cutde](https://github.com/tbenthompson/cutde) instead of `okada_wrapper`.
+
+Triangular dislocations are strictly more powerful than rectangles. In addition, `cutde` supports many features not supported by `okada_wrapper`, including built-in tools to build large matrices or construct hierarchical matrix approximations.
+
 #### Okada wrapper (MATLAB, Python)
 
 Okada dislocations in Python and MATLAB! 
