@@ -4,9 +4,7 @@ from matplotlib.pyplot import contourf, contour, \
     xlabel, ylabel, colorbar, show, savefig
 import matplotlib
 import time
-matplotlib.rcParams['font.family'] = 'serif'
-matplotlib.rcParams['font.serif'] = ['Computer Modern Roman']
-matplotlib.rcParams['text.usetex'] = True
+matplotlib.rcParams['mathtext.fontset'] = 'cm'
 matplotlib.rcParams['font.size'] = 14
 matplotlib.rcParams['xtick.direction'] = 'out'
 matplotlib.rcParams['ytick.direction'] = 'out'
@@ -41,10 +39,10 @@ def test_dc3d0():
 
     cntrf = contourf(x, y, log(abs(ux.T)))
     contour(x, y, log(abs(ux.T)), colors='k', linestyles='solid')
-    xlabel('x')
-    ylabel('y')
+    xlabel(r'$\mathrm{x}$')
+    ylabel(r'$\mathrm{y}$')
     cbar = colorbar(cntrf)
-    cbar.set_label('$\log(u_{\\textrm{x}})$')
+    cbar.set_label(r'$\log(u_{\mathrm{x}})$')
     show()
 
 
@@ -67,13 +65,13 @@ def test_dc3d():
     levels = linspace(-0.5, 0.5, 21)
     cntrf = contourf(x, y, ux.T, levels=levels)
     contour(x, y, ux.T, colors='k', levels=levels, linestyles='solid')
-    xlabel('x')
-    ylabel('y')
+    xlabel(r'$\mathrm{x}$')
+    ylabel(r'$\mathrm{y}$')
     cbar = colorbar(cntrf)
     tick_locator = matplotlib.ticker.MaxNLocator(nbins=5)
     cbar.locator = tick_locator
     cbar.update_ticks()
-    cbar.set_label('$u_{\\textrm{x}}$')
+    cbar.set_label(r'$u_{\mathrm{x}}$')
     savefig("strike_slip.png")
     show()
 
