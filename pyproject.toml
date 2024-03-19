@@ -1,0 +1,19 @@
+[project]
+name = "okada_wrapper"
+version = "18.12.08.3"
+description = "Python and MATLAB wrappers for the Okada Green's function codes"
+url = "https://github.com/tbenthompson/okada_wrapper"
+authors = [
+    {name = "Ben Thompson", email = "t.ben.thompson@gmail.com"},
+]
+dependencies = [
+    "numpy",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ['okada', 'elastic', 'halfspace']
+
+[build-system]
+build-backend = "mesonpy"
+requires = ["meson-python", "cython", "numpy"]

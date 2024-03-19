@@ -3,6 +3,7 @@
       IMPLICIT REAL*8 (A-H,O-Z)
       REAL*4   ALPHA,X,Y,Z,DEPTH,DIP,POT1,POT2,POT3,POT4,
      *         UX,UY,UZ,UXX,UYX,UZX,UXY,UYY,UZY,UXZ,UYZ,UZZ
+Cf2py intent(out) UX,UY,UZ,UXX,UYX,UZX,UXY,UYY,UZY,UXZ,UYZ,UZZ,IRET
 C
 C********************************************************************
 C*****                                                          *****
@@ -474,6 +475,7 @@ C=========================================
       IMPLICIT REAL*8 (A-H,O-Z)
       REAL*4   ALPHA,X,Y,Z,DEPTH,DIP,AL1,AL2,AW1,AW2,DISL1,DISL2,DISL3,
      *         UX,UY,UZ,UXX,UYX,UZX,UXY,UYY,UZY,UXZ,UYZ,UZZ
+Cf2py intent(out) UX,UY,UZ,UXX,UYX,UZX,UXY,UYY,UZY,UXZ,UYZ,UZZ,IRET
 C
 C********************************************************************
 C*****                                                          *****
