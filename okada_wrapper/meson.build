@@ -20,10 +20,17 @@ dc3d_source = custom_target('DC3Dmodule.c',
   command : [py, '-m', 'numpy.f2py', '@INPUT@', '-m', 'DC3D', '--lower', '--build-dir', 'okada_wrapper']
 )
 
+py.install_sources(
+  ['__init__.py', 'okada_wrapper.py'],
+  subdir: 'okada_wrapper',
+  pure: false
+)
+
 py.extension_module('DC3D',
   ['DC3D.f', dc3d_source],
   incdir_f2py / 'fortranobject.c',
   include_directories: inc_np,
+  subdir: 'okada_wrapper',
   dependencies: py_deps,
   install: true
 )
