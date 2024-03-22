@@ -1,4 +1,4 @@
-from DC3D import dc3d0, dc3d
+from .DC3D import dc3d0, dc3d
 from numpy import empty
 
 
