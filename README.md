@@ -111,7 +111,7 @@ Make sure that a Fortran compiler is installed. The wrappers are tested using gc
 Then, run the install script::
 
 ```
-python setup.py install
+pip install ./okada_wrapper
 ```
 
 The syntax is almost identical to the MATLAB version::
