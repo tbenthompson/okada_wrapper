@@ -1,6 +1,6 @@
 [project]
 name = "okada_wrapper"
-version = "24.03.22"
+version = "24.06.15"
 description = "Python and MATLAB wrappers for the Okada Green's function codes"
 url = "https://github.com/tbenthompson/okada_wrapper"
 authors = [
